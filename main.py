@@ -8,16 +8,14 @@ def perform_action(option):
         from langchain.text_splitter import CharacterTextSplitter
         from langchain.chains import ConversationalRetrievalChain
         import os
-        os.environ["OPENAI_API_KEY"] = "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"
-
-        from langchain.chat_models import ChatOpenAI
+        os.environ["OPENAI_API_KEY"]= os.getenv("API_KEY")
         llm = ChatOpenAI(temperature=0,model_name="gpt-3.5-turbo")
 
-        from langchain.document_loaders import DirectoryLoader
+        txt_loader = DirectoryLoader(os.getenv("DIR_PATH"), glob="**/*.txt")
+        word_loader = DirectoryLoader(os.getenv("DIR_PATH"), glob="**/*.docx")
+        from langchain.chat_models import ChatOpenAI
 
-        #pdf_loader = DirectoryLoader('/Users/abhiseksahoo/Desktop/chatbot', glob="**/*.pdf")
-        txt_loader = DirectoryLoader('/Users/abhiseksahoo/Desktop/chatbot', glob="**/*.txt")
-        word_loader = DirectoryLoader('/Users/abhiseksahoo/Desktop/chatbot', glob="**/*.docx")
+        from langchain.document_loaders import DirectoryLoader
 
         loaders = [txt_loader , word_loader]
         documents = []
@@ -64,7 +62,7 @@ def perform_action(option):
         st.write('Here is your query chatbot')
         import openai 
         import gradio  
-        openai.api_key="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" 
+        openai.api_key=os.getenv("API_KEY")
         messages=[{"role":"system","content":"you are a rescue agency"}]  
 
         def CustomChatGPT(user_input):
