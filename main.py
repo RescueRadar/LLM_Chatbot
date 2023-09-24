@@ -48,4 +48,4 @@ with gr.Blocks() as demo:
     clear.click(lambda: None, None, chatbot, queue=False)
 
 if __name__ == "__main__":
-    demo.launch(debug=True,share=True
+    demo.launch(debug=True,share=True)
