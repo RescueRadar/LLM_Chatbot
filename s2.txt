@@ -1,0 +1,11 @@
+Emergency Contact Number 
+
+Police:100 
+Ambulance:108
+Fire brigade:101
+Tourist Helpline:1363 
+Gas leakage:1906 
+Disaster management:104 
+Women Helpline:181 
+Child  Helpline:1098
+Rescue agency emergency helpline:1001 
